@@ -1,6 +1,6 @@
 #include "Lentcode.h"
 #include"iostream"
-#include <unordered_map>  
+#include <unordered_map>
 
 using namespace std;
 
@@ -38,30 +38,30 @@ int Lentcode::removeDuplicates(vector<int>& nums)
 int Lentcode::largestRectangleArea(vector<int>& heights)
 {
 	if ((heights.size() == 0))
-		return 0;		//ÅĞ¶ÏÊäÈë²»Îª¿Õ
+		return 0;		//åˆ¤æ–­è¾“å…¥ä¸ä¸ºç©º
 	vector<int>::iterator it = heights.begin(), it_end=heights.end();
 	int max = 0, remain=0;
 	while (it != heights.end())
-		remain = recursion_84(it, it_end, max, remain);//Ìø³öµİ¹éµÄÁ½ÖÖÌõ¼ş£ºitµü´úÖÁend¡¢µ±Ç°ÏîĞ¡ÓÚ×îµ×²ãµİ¹éµÄ¸ß¶È±ê¼Ç£¬µÚ¶şÖÖÇé¿öĞèÒª½«ÉÏ´Îµİ¹éÖĞµÄcount×÷Îªrest´øÈëÏÂÒ»´Îµİ¹é
+		remain = recursion_84(it, it_end, max, remain);//è·³å‡ºé€’å½’çš„ä¸¤ç§æ¡ä»¶ï¼šitè¿­ä»£è‡³endã€å½“å‰é¡¹å°äºæœ€åº•å±‚é€’å½’çš„é«˜åº¦æ ‡è®°ï¼Œç¬¬äºŒç§æƒ…å†µéœ€è¦å°†ä¸Šæ¬¡é€’å½’ä¸­çš„countä½œä¸ºrestå¸¦å…¥ä¸‹ä¸€æ¬¡é€’å½’
 	return max;
 }
 
 int Lentcode::recursion_84(vector<int>::iterator &it, vector<int>::iterator &it_end, int &max, int past)
 {
-	int count = past, height = *it, remain=0, temp=0;//½øÈëº¯ÊıÊ±itÎªµÚÒ»Ïî£¬±¾²ãµİ¹éµÄÊ¶±ğ±êÖ¾Îªheight
-	while (height!=0)//Ö÷Ñ­»·
+	int count = past, height = *it, remain=0, temp=0;//è¿›å…¥å‡½æ•°æ—¶itä¸ºç¬¬ä¸€é¡¹ï¼Œæœ¬å±‚é€’å½’çš„è¯†åˆ«æ ‡å¿—ä¸ºheight
+	while (height!=0)//ä¸»å¾ªç¯
 	{
-		while ((it != it_end) && (height == *it))//½«Óë¸Ã²ã±êÖ¾ÏàµÈµÄÏîÄ¿ÀÛ¼ÓÖÁcount
+		while ((it != it_end) && (height == *it))//å°†ä¸è¯¥å±‚æ ‡å¿—ç›¸ç­‰çš„é¡¹ç›®ç´¯åŠ è‡³count
 			count++, it++,remain=0;
-		if ((it == it_end)||(height > *it))//µü´úÖÁÎ²²¿£¬»òÏÂÒ»²ãµÍÓÚ±¾²ã±ê¼ÇÊ±->ÅĞ¶ÏÊÇ·ñÎªmax£¬²¢½áÊø±¾²ãµİ¹é
+		if ((it == it_end)||(height > *it))//è¿­ä»£è‡³å°¾éƒ¨ï¼Œæˆ–ä¸‹ä¸€å±‚ä½äºæœ¬å±‚æ ‡è®°æ—¶->åˆ¤æ–­æ˜¯å¦ä¸ºmaxï¼Œå¹¶ç»“æŸæœ¬å±‚é€’å½’
 		{
 			if (max < count*height)
 				max = count*height;
 			return count;
 		}
-		else//ÏÂÒ»Ïî¸ßÓÚ±¾²ã±ê¼Ç£¬½øÈëÏÂÒ»²ãµİ¹é
+		else//ä¸‹ä¸€é¡¹é«˜äºæœ¬å±‚æ ‡è®°ï¼Œè¿›å…¥ä¸‹ä¸€å±‚é€’å½’
 		{
-			temp = recursion_84(it, it_end, max, remain); //ÏÂ²ãµİ¹é½áÊøºó·µ»ØÏÂ²ãµİ¹éµÄcountÀÛ¼ÓÖÁ±¾²ãcountÖ®ÉÏ£¬È»ºó¼ÌĞøÖ÷Ñ­»·
+			temp = recursion_84(it, it_end, max, remain); //ä¸‹å±‚é€’å½’ç»“æŸåè¿”å›ä¸‹å±‚é€’å½’çš„countç´¯åŠ è‡³æœ¬å±‚countä¹‹ä¸Šï¼Œç„¶åç»§ç»­ä¸»å¾ªç¯
 			count +=temp-remain;
 			remain = temp;
 		}
