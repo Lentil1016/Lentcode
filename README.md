@@ -1,5 +1,6 @@
 # Lentil on Leetcode
 Problem AC
+
 |ID|Name|Runtime|Beats|
 |-|-|-|-|
 |1|Two Sum|16 ms|43.49%|
