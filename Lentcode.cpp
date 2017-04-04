@@ -4,11 +4,7 @@
 #include<boost/unordered_map.hpp>
 #include<vector>
 #include<limits.h>
-//#include<bitset>
 #include"Lentcode.h"
-//#include<boost/regex.hpp>
-//#include<string>  // for std::string
-//#include<numeric> // for std::accumulate
 #include<sstream>
 
 using namespace boost;
@@ -144,6 +140,30 @@ vector<string> Lentcode::fizzBuzz(int n) {
 	}
 	return rtn;
 
+}
+
+// Easy problem 400 Nth Digit
+int Lentcode::findNthDigit(int n)
+{
+	if(n < 1)
+		return 0;
+	if(n < 10)
+		return n;
+	int bit = 1, member = 9, temp = n - member * bit;
+	while(temp > -1)
+	{
+		n = temp;
+		member *= 10;
+		bit++;
+		temp = n - member * bit;
+	}
+
+	member = (member / 9 + (n-1) / bit);
+	cout<<member<<endl;
+	for (temp = 0; temp < n%bit; temp++)
+		member = member / 10,cout<<"dev"<<endl;
+
+	return member % 10;
 }
 
 //Hard problem 446 ACed numberOfArithmeticSlices

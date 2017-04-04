@@ -57,11 +57,17 @@ int main(int argc, char **argv)
 	cin.get();
 	*/
 
+	//problem 400
+
+	int input;
+	cin>>input;
+	cout<<obj.findNthDigit(input)<<endl;
 
 	//problem 446
+	/*
 	int a[] = {0,2000000000,-294967296};
 	vector<int> input(a,a+3);
 	cout<< obj.numberOfArithmeticSlices(input)<<endl;
 	return 0;
-
+	*/
 }

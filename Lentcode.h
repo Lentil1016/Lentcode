@@ -1,6 +1,5 @@
 #pragma once
 #include<vector>
-#include<map>
 #include<string>
 
 class Lentcode
@@ -15,10 +14,10 @@ public:
 	//problem 26
 	int removeDuplicates(std::vector<int>& nums);
 
-	//problem67
+	//problem 67
 	std::string addBinary(std::string a, std::string b);
 
-	//problem75
+	//problem 75
 	void sortColors(std::vector<int>& nums);
 
 	//problem 84
@@ -29,6 +28,9 @@ public:
 
 	//problem 412
 	std::vector<std::string> fizzBuzz(int n);
+
+	//problem 400
+	int findNthDigit(int n);
 
 	//problem 446
 	int numberOfArithmeticSlices(std::vector<int>& A);
