@@ -110,8 +110,37 @@ void Lentcode::merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, in
 			nums1.rbegin(),greater<int>());
 }
 
+// Easy problem 125 Aced Valid Palindrome
+bool Lentcode::isPalindrome(string s)
+{
+	string::iterator front = s.begin(), back = --s.end();
+	char a, b;
+	while (front < back)
+	{
+		a = *front, b = *back;
+		while(a < '0'||a < 'A'&&a > '9'||a > 'z'||a <'a'&&a >'Z'||front==s.end())
+		{
+			a=*++front;
+			if(front == s.end())
+				return true;
+		}
+		while(b < '0'||b < 'A'&&b > '9'||b > 'z'||b < 'a'&&b > 'Z')
+			b=*--back;
+
+		if(a <= 'Z' && a >= 'A')
+			a += 32;
+		if(b <= 'Z' && b >= 'A')
+			b += 32;
+
+		if( a != b )
+			return false;
+		front++, back--;
+	}
+	return true;
+}
+
 //Easy problem 344 ACed reverseString
-string reverseString(string s) {
+string Lentcode::reverseString(string s) {
 	std::reverse(s.begin(), s.end());
 	return s;
 }
@@ -209,6 +238,4 @@ string Lentcode::addBinary(string a, string b)
 	cout << a << endl;
 	return a;
 }
-
-
 

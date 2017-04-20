@@ -2,6 +2,14 @@
 #include<vector>
 #include<string>
 
+struct TreeNode {
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+
 class Lentcode
 {
 public:
@@ -25,6 +33,12 @@ public:
 
 	//problem 88
 	void merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n);
+
+	//problem 125
+	bool isPalindrome(std::string s);
+
+	//problem 344
+	std::string reverseString(std::string s);
 
 	//problem 412
 	std::vector<std::string> fizzBuzz(int n);
