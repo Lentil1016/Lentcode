@@ -229,6 +229,8 @@ int Lentcode::numberOfArithmeticSlices(vector<int>& A)
 // Easy problem 557 Aced Reverse Words in a String III
 string Lentcode::reverseWord(string s)
 {
+	if (s.size() < 2)
+		return s;
 	string::iterator quike = s.begin(), slow = s.begin();
 	while(quike != s.end())
 	{
