@@ -49,6 +49,9 @@ public:
 	//problem 446
 	int numberOfArithmeticSlices(std::vector<int>& A);
 
+	//problem 557
+	std::string reverseWord(std::string s);
+
 private:
 	int recursion_84(std::vector<int>::iterator &it, std::vector<int>::iterator &it_end, int &max, int past);
 };

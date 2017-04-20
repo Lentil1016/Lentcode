@@ -226,6 +226,22 @@ int Lentcode::numberOfArithmeticSlices(vector<int>& A)
 	return ret;
 }
 
+// Easy problem 557 Aced Reverse Words in a String III
+string Lentcode::reverseWord(string s)
+{
+	string::iterator quike = s.begin(), slow = s.begin();
+	while(quike != s.end())
+	{
+		while(*quike == ' ')
+			quike++;
+		slow = quike;
+		while(*quike != ' '&&quike != s.end())
+			quike++;
+		reverse(slow, quike-1);
+	}
+	return s;
+}
+
 // problem 67
 string Lentcode::addBinary(string a, string b)
 {
@@ -238,4 +254,6 @@ string Lentcode::addBinary(string a, string b)
 	cout << a << endl;
 	return a;
 }
+
+
 
